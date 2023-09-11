@@ -1,7 +1,12 @@
 const Workout = require('../models/Workout.model')
 
 const getWorkouts = async (req, res) => {
-    await res.json({ message: "get all workouts"});
+    const workout = await Workout.find({ });
+    if (workout.length !== 0) {
+        res.status(200).json({ workout });
+    } else {
+        res.status(404).json({ noContentErr: 'there\'s no element in the database.' })
+    }
 }
 
 const deleteWorkouts = async (req, res) => {
@@ -9,7 +14,17 @@ const deleteWorkouts = async (req, res) => {
 }
 
 const getWorkout = async (req, res) => {
-    const { id } = req.body;
+    const { id } = req.params;
+    try {
+        const workout = await Workout.findById(id);
+        if (workout) {
+            res.status(200).json(workout);
+        } else {
+            res.status(404).json({ message: 'no such workout found.' });
+        }
+    } catch (err) {
+
+    }
 }
 
 const postWorkout = async (req, res) => {
