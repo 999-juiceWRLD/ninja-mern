@@ -2,6 +2,10 @@ const getWorkouts = async (req, res) => {
     await res.json({ message: "get all workouts"});
 }
 
+const deleteWorkouts = async (req, res) => {
+    
+}
+
 const getWorkout = async (req, res) => {
     const { id } = req.body;
 }
@@ -21,6 +25,7 @@ const patchWorkout = async (req, res) => {
 
 module.exports = {
     getWorkouts,
+    deleteWorkouts,
     getWorkout,
     postWorkout,
     deleteWorkout,
