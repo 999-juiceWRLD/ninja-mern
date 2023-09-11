@@ -1,6 +1,8 @@
 const express = require('express')
 const cors = require('cors')
 const { connectDB, port } = require('./server')
+const mainMiddleware = require('./src/middleware/main')
+const workoutsRouter = require('./src/routes/workouts')
 
 const app = express();
 
@@ -25,8 +27,10 @@ const start = async () => {
 
 start();
 
-app.get('/', (req, res) => {
+app.get('/', mainMiddleware, (req, res) => {
     res.send("experimental")
 })
+
+app.use('/api/workouts', workoutsRouter);
 
 module.exports = app;
