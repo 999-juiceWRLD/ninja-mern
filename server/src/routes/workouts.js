@@ -10,12 +10,12 @@ const router = express.Router();
 router
     .route('/')
     .get(getWorkouts)
+    .post(postWorkout)
     .delete(deleteWorkouts)
 
 router
     .route('/:id')
     .get(getWorkout)
-    .post(postWorkout)
     .delete(deleteWorkout)
     .patch(patchWorkout)
 
