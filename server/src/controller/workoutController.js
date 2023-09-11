@@ -11,7 +11,7 @@ const getWorkouts = async (req, res) => {
 }
 
 const deleteWorkouts = async (req, res) => {
-        const workouts = Workout.deleteMany({});
+        const workouts = await Workout.deleteMany({ });
         res.status(200).json({
             message: 'all workout data deleted successfully.',
         });
