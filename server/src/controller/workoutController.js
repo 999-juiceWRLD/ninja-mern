@@ -20,10 +20,12 @@ const getWorkout = async (req, res) => {
         if (workout) {
             res.status(200).json(workout);
         } else {
-            res.status(404).json({ message: 'no such workout found.' });
+            res.status(404).json({ message: 'no such workout data found.' });
         }
     } catch (err) {
-
+        res.status(404).json({
+            errMessage: err.message
+        })
     }
 }
 
