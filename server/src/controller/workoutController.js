@@ -22,5 +22,7 @@ const patchWorkout = async (req, res) => {
 module.exports = {
     getWorkouts,
     getWorkout,
-    postWorkout
+    postWorkout,
+    deleteWorkout,
+    patchWorkout
 }
