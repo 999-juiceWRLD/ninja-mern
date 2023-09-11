@@ -2,16 +2,19 @@ const { default: mongoose } = require('mongoose');
 const Workout = require('../models/Workout.model')
 
 const getWorkouts = async (req, res) => {
-    const workout = await Workout.find({ });
-    if (workout.length !== 0) {
-        res.status(200).json({ workout });
+    const workouts = await Workout.find({ });
+    if (workouts.length !== 0) {
+        res.status(200).json({ workouts });
     } else {
         res.status(404).json({ noContentErr: 'there\'s no element in the database.' })
     }
 }
 
 const deleteWorkouts = async (req, res) => {
-    
+        const workouts = Workout.deleteMany({});
+        res.status(200).json({
+            message: 'all workout data deleted successfully.',
+        });
 }
 
 const getWorkout = async (req, res) => {
