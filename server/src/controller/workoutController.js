@@ -52,11 +52,9 @@ const postWorkout = async (req, res) => {
         })
     } catch (err) {
         if (err.code === 11000) {
-            console.log('there\'s something wrong');
-            console.log(Object.keys(err));
             const forbiddenTitle = err.keyValue.title;
             const titleMessage = `duplicate key is forbidden: '${forbiddenTitle}'`
-            res.status(404).json({
+            return res.status(404).json({
                 errMessage: titleMessage
             })
         }
