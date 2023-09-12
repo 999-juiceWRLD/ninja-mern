@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { WorkoutDetails } from "../components/WorkoutDetails.component"
+import { WorkoutForm } from "../components/WorkoutForm.component";
 import axios from "axios"
 
 export const Home = () => {
@@ -53,6 +54,7 @@ export const Home = () => {
     return (
         <div className="home">
             {traverseArrIfEmpty(workouts)}
+            <WorkoutForm />
         </div>
     );
 }
