@@ -11,12 +11,16 @@ export const Home = () => {
         if (workouts.length === 0) {
             return (<NoElement />) 
         } else if (workouts.length > 0) {
-            return array.map((e, idx) => (
-                <WorkoutDetails 
-                    key={idx}
-                    workout={e}
-                />
-            ));
+            return (
+                <div className="workouts">
+                    {array.map((e, idx) => (
+                        <WorkoutDetails 
+                            key={idx}
+                            workout={e}
+                        />
+                    ))}
+                </div>
+            )
         }
     }
 
