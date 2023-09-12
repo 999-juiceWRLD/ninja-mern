@@ -6,7 +6,18 @@ export const Home = () => {
     useEffect(() => {
         const fetch = async () => {
             await axios.get('http://localhost:3000/api/workouts')
-                .then(res => { console.log(res) })
+                .then(res => { 
+                    if (res.status === 200) {
+                        return res.data;
+                    }
+                })
+                .then(data => {
+                    if (data.workouts) {
+                        console.log(data.workouts);
+                    } else {
+                        console.log(data);
+                    }
+                })
                 .catch(err => { console.log(err)})
         }
         fetch();
