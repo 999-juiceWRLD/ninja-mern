@@ -40,21 +40,18 @@ export const Home = () => {
                 })
                 .then(data => {
                     if (data.workouts) {
-                        console.log(data.workouts);
                         setWorkouts(data.workouts)
                     } else {
                         setErrorMessage(data['noContentErr']);
-                        console.log(data);
                     }
                 })
                 .catch(err => { console.log(err)})
         }
         fetch();
-        }, [])
+        }, [workouts])
 
     return (
         <div className="home">
-            <h1>Home</h1>
             {traverseArrIfEmpty(workouts)}
         </div>
     );
