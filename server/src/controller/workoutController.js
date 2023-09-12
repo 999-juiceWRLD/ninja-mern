@@ -2,11 +2,15 @@ const { default: mongoose } = require('mongoose');
 const Workout = require('../models/Workout.model')
 
 const getWorkouts = async (req, res) => {
-    const workouts = await Workout.find({ });
-    if (workouts.length !== 0) {
-        res.status(200).json({ workouts });
-    } else {
-        res.status(404).json({ noContentErr: 'there\'s no element in the database.' })
+    try {
+        const workouts = await Workout.find({ });
+        if (workouts.length !== 0) {
+            res.status(200).json({ workouts });
+        } else {
+            res.status(200).json({ noContentErr: 'there\'s no element in the database.' })
+        }
+    } catch (err) {
+        res.status(404).json({ message: err.message });
     }
 }
 
