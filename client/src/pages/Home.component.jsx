@@ -33,7 +33,7 @@ export const Home = () => {
 
     useEffect(() => {
         const fetch = async () => {
-            await axios.get('http://localhost:3000/api/workouts')
+            await axios.get('https://ninja-mern-backend.vercel.app/api/workouts')
                 .then(res => { 
                     if (res.status === 200) {
                         return res.data;

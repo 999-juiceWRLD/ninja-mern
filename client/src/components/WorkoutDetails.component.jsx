@@ -4,7 +4,7 @@ import axios from "axios";
 export const WorkoutDetails = ({ workout }) => {
 
     const handleClick = async () => {
-        await axios.delete(`http://localhost:3000/api/workouts/${workout._id}`)
+        await axios.delete(`https://ninja-mern-backend.vercel.app/api/workouts/${workout._id}`)
             .then(res => { console.log(res.data) })
             .catch(err => { console.log(err) })
     }

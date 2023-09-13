@@ -27,7 +27,7 @@ export const WorkoutForm = () => {
             }
             return acc;
           }, {});
-        await axios.post('http://localhost:3000/api/workouts', mappedObject, config)
+        await axios.post('https://ninja-mern-backend.vercel.app/api/workouts', mappedObject, config)
             .then(res => {
                     const notify = res.data.message;
                     setNotifier(notify)
